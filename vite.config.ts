@@ -1,8 +1,7 @@
 /// <reference types="vitest" />
 
-import path from 'node:path';
-
 import { defineConfig } from 'vite';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
@@ -31,16 +30,5 @@ export default defineConfig({
     __API_URL__: 'window.__backend_api_url',
     __APP_VERSION__: JSON.stringify(pkg.version)
   },
-  plugins: [react(), tailwindcss()],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@components': path.resolve(__dirname, './src/components'),
-      '@contexts': path.resolve(__dirname, './src/contexts'),
-      '@helpers': path.resolve(__dirname, './src/helpers'),
-      '@hooks': path.resolve(__dirname, './src/hooks'),
-      '@screens': path.resolve(__dirname, './src/screens'),
-      '@types': path.resolve(__dirname, './src/types')
-    }
-  }
+  plugins: [tsconfigPaths({ projects: ['tsconfig.base.json'] }), react(), tailwindcss()]
 });
