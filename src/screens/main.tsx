@@ -1,12 +1,13 @@
 import { useRef } from 'react';
 
-import { Mesh } from 'three';
+import { Mesh, PCFShadowMap } from 'three';
 import { Box, OrbitControls, Plane, Text3D } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 
+import { createLog } from 'odgn-ts-helpers/log';
+
 import { ThemeTogglePortal } from '@/components/theme/toggle-portal';
 import { useTheme } from '@/contexts/theme/context';
-import { createLog } from '@/helpers/log';
 
 const log = createLog('Main');
 
@@ -83,7 +84,7 @@ export const Main = () => {
         <div className="flex h-full w-full items-center justify-center gap-4">
           <Canvas
             camera={{ fov: 50, position: [15, 15, 15] }}
-            shadows
+            shadows={{ type: PCFShadowMap }}
             style={{ background: 'transparent' }}
           >
             <Scene />
