@@ -4,13 +4,13 @@
 - App entry: `src/main.tsx`; global styles: `src/index.css`.
 - Domains: `src/components`, `src/contexts`, `src/helpers`, `src/hooks`, `src/screens`, `src/assets`.
 - Public assets served as-is: `public/`.
-- Vite/Tailwind/TS config: `vite.config.ts`, `tailwind.config.js`, `tsconfig*.json`.
-- Import aliases (via Vite/Vitest): `@components`, `@contexts`, `@helpers`, `@hooks`, `@screens`, `@types`.
+- Bun/Tailwind/TS config: `bunfig.toml`, `build.ts`, `tailwind.config.js`, `tsconfig*.json`.
+- Import aliases (via tsconfig.json/Vitest): `@components`, `@contexts`, `@helpers`, `@hooks`, `@screens`, `@types`.
 
 ## Build, Test, and Development Commands
-- `bun run dev` — start Vite dev server.
-- `bun run build` — production build (manual chunks for three/r3f/vendor).
-- `bun run preview` — preview built app.
+- `bun run dev` — start Bun dev server.
+- `bun run build` — production build (automatic code splitting).
+- `bun run preview` — preview production build.
 - `bun run test` — run Vitest.
 - `bun run coverage` — Vitest with coverage (v8 reporters: text/json/html).
 - `bun run lint` / `bun run lint:fix` — ESLint check/fix.
@@ -36,6 +36,6 @@
 - CI hygiene: run `bun run lint && bun run test` locally before opening/merging.
 
 ## R3F/Three Tips & Config
-- Heavy deps are code-split (`rthree`, `three`, `vendor`); prefer lazy routes/chunks for large scenes.
+- Heavy deps are automatically code-split by Bun; prefer lazy routes/chunks for large scenes.
 - Use aliases for clean imports; avoid deep `three` internals unless necessary.
-- Runtime defines: `__APP_VERSION__` and `__API_URL__` are provided via Vite define—do not hardcode secrets; prefer environment-driven configuration.
+- Runtime defines: `__APP_VERSION__` and `__API_URL__` are provided via build.ts define—do not hardcode secrets; prefer environment-driven configuration.
