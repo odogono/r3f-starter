@@ -29,7 +29,7 @@ export default [
     settings: {
       'import/resolver': {
         typescript: {
-          project: resolve(process.cwd(), './tsconfig.app.json')
+          project: resolve(process.cwd(), './tsconfig.json')
         }
       }
     }

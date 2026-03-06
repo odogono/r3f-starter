@@ -4,9 +4,9 @@ import { Mesh } from 'three';
 import { Box, OrbitControls, Plane, Text3D } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 
-import { ThemeTogglePortal } from '@components/theme/toggle-portal';
-import { useTheme } from '@contexts/theme/context';
-import { createLog } from '@helpers/log';
+import { ThemeTogglePortal } from '@/components/theme/toggle-portal';
+import { useTheme } from '@/contexts/theme/context';
+import { createLog } from '@/helpers/log';
 
 const log = createLog('Main');
 
@@ -79,8 +79,8 @@ export const Main = () => {
 
   return (
     <>
-      <div className="w-screen h-screen bg-background">
-        <div className="flex items-center justify-center gap-4 w-full h-full">
+      <div className="bg-background h-screen w-screen">
+        <div className="flex h-full w-full items-center justify-center gap-4">
           <Canvas
             camera={{ fov: 50, position: [15, 15, 15] }}
             shadows

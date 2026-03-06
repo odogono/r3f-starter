@@ -1,3 +1,3 @@
 # React-Three-Fiber Starter
 
-Starter project consisting of React-Three-Fiber, Vite, Tailwind, and Typescript.
+Starter project consisting of React-Three-Fiber, Tailwind, and Typescript.

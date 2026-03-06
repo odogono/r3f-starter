@@ -6,15 +6,15 @@
   "scripts": {
     "dev": "bun ./index.html",
     "build": "bun run build.ts",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "lint": "eslint --cache .",
-    "lint:fix": "eslint --fix .",
+    "format": "prettier --write src",
+    "format:check": "prettier --check src",
+    "lint": "eslint --cache src",
+    "lint:fix": "eslint --fix src",
     "outdated": "bunx npm-check-updates --interactive --format group",
     "preview": "bun ./dist/index.html",
     "unused": "knip",
-    "coverage": "vitest run --coverage",
-    "test": "vitest"
+    "coverage": "bun test --coverage --coverage-reporter=text --coverage-reporter=lcov",
+    "test": "bun test"
   },
   "dependencies": {
     "@react-spring/three": "^10.0.3",
@@ -38,15 +38,12 @@
     "@types/node": "^25.3.5",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@vitest/coverage-v8": "^3.2.4",
-    "eslint": "^9.37.0",
+    "eslint": "^10.0.2",
     "knip": "^5.85.0",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4.2.1",
     "typescript": "~5.9.3",
-    "bun-plugin-tailwind": "^0.1.2",
-    "vite": "^7.3.1",
-    "vitest": "^3.2.4"
+    "bun-plugin-tailwind": "^0.1.2"
   }
 }

@@ -6,13 +6,13 @@ import pkg from './package.json' with { type: 'json' };
 const result = await Bun.build({
   define: {
     __API_URL__: 'window.__backend_api_url',
-    __APP_VERSION__: JSON.stringify(pkg.version),
+    __APP_VERSION__: JSON.stringify(pkg.version)
   },
   entrypoints: ['./index.html'],
   minify: true,
   outdir: './dist',
   plugins: [tailwindcss],
-  splitting: true,
+  splitting: true
 });
 
 if (!result.success) {
@@ -23,6 +23,6 @@ if (!result.success) {
   process.exit(1);
 } else {
   console.log(
-    `Build succeeded: ${result.outputs.length} files written to ./dist`,
+    `Build succeeded: ${result.outputs.length} files written to ./dist`
   );
 }
